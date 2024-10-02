@@ -28,8 +28,8 @@ def rps():
 
         print(" ")
 
-        print("player_Choise :"+" " +str(RPS(player)).replace("RPS.",""))
-        print("computer_Choise :"+" " +str(RPS(computer)).replace("RPS.",""))
+        print(f"player_Choise :{str(RPS(player)).replace("RPS.","")}")
+        print(f"computer_Choise :{str(RPS(computer)).replace("RPS.","")}")
 
         def game_Play(player,computer):
             print(" ")
@@ -54,9 +54,9 @@ def rps():
         print("")
         nonlocal game_Count
         game_Count+=1
-        print("Game_Count:" + str(game_Count))
-        print("\nPlayer wins: " + str(player_wins))
-        print("\nPython wins: " + str(python_wins))
+        print(f"Game_Count:{str(game_Count)}")
+        print(f"\nPlayer wins:{str(player_wins)}")
+        print(f"\nPython wins:{str(python_wins)}")
         print("\nPlay Again? ")
 
         while True:
