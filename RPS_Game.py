@@ -2,6 +2,8 @@ import random
 import sys
 from enum import Enum
 
+game_Count =0
+
 class RPS(Enum):
     ROCK = 1
     PAPER= 2
@@ -25,18 +27,23 @@ def play_Game():
     print("player_Choise :"+" " +str(RPS(player)).replace("RPS.",""))
     print("computer_Choise :"+" " +str(RPS(computer)).replace("RPS.",""))
 
-    print(" ")
-    if(player==1 and computer==3):
-        print("🎉 You Win!")
-    elif(player==2 and computer==1):
-        print("🎉 You Win!")
-    elif(player==3 and computer==2):
-        print("🎉 You Win!")
-    elif(player == computer):
-        print("😑 tie Game!")
-    else:
-        print("🐍 Python Win!")
+    def game_Play(player,computer):
+        print(" ")
+        if(player==1 and computer==3):
+            print("🎉 You Win!")
+        elif(player==2 and computer==1):
+            print("🎉 You Win!")
+        elif(player==3 and computer==2):
+            print("🎉 You Win!")
+        elif(player == computer):
+            print("😑 tie Game!")
+        else:
+            print("🐍 Python Win!")
 
+    game_Play(player,computer)
+    global game_Count
+    game_Count+=1
+    print("Game_Count:" + str(game_Count))
     print("\nPlay Again? ")
 
     while True:
