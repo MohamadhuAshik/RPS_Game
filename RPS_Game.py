@@ -2,12 +2,12 @@ import random
 import sys
 from enum import Enum
 
-
-
 class RPS(Enum):
     ROCK = 1
     PAPER= 2
     SCISSOR = 3
+
+
 def rps():
     game_Count =0
     player_wins =0
