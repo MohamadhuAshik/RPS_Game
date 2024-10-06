@@ -1,22 +1,15 @@
 import random
-import sys
-from enum import Enum
 import arcade
 
-class RPS(Enum):
-    ROCK = 1
-    PAPER= 2
-    SCISSOR = 3
 
-
-def rps(name = "Player One"):
+def guess_My_Number(name = "PlayerOne"):
     game_Count =0
     player_wins =0
     python_wins =0
 
     def play_Game():
         print(" ")
-        player_Choise = input(f"{name} Enter.......\n\n1 for Rock\n2 for paper\n3 for scissor\n\n")
+        player_Choise = input(f"{name} Guess Which Number I'm Thinking Of... 1,2 or 3\n")
         player = int(player_Choise)
 
         if(player_Choise not in ["1","2","3"]):
@@ -28,37 +21,29 @@ def rps(name = "Player One"):
 
 
         print(" ")
-
-        print(f"{name} you Choise :{str(RPS(player)).replace("RPS.","")}")
-        print(f"computer_Choise :{str(RPS(computer)).replace("RPS.","")}")
-
-        def game_Play(player,computer):
-            print(" ")
-            nonlocal name
-            nonlocal player_wins
-            nonlocal python_wins
-            if(player==1 and computer==3):
-                player_wins+=1
-                print(f"🎉 {name} You Win!")
-            elif(player==2 and computer==1):
-                player_wins+=1
-                print(f"🎉 {name} You Win!")
-            elif(player==3 and computer==2):
-                player_wins+=1
-                print(f"🎉 {name} You Win!")
-            elif(player == computer):
-                print(f"{name} No One Win 😑 tie Game!")
-            else:
+        def gamePlay(player,computer): 
+              nonlocal python_wins
+              nonlocal player_wins
+              nonlocal name
+              if player != computer:
                 python_wins+=1
-                print(f"sorry {name} 🐍 Python Win!")
+                print(f" {name} you chose {player}\nI was thinking about number {computer}\n sorry {name} BetterLuck NextTime!")
+              else:
+                player_wins +=1
+                print(f" {name} you chose {player}\nI also think number {computer}\n both thinking are same nice Play Congrats {name} You Win!")
+        gamePlay(player,computer)
 
-        game_Play(player,computer)
-        print("")
         nonlocal game_Count
         game_Count+=1
+
         print(f"Game_Count:{str(game_Count)}")
+
         print(f"\n{name}'s wins:{str(player_wins)}")
+
         print(f"\nPython wins:{str(python_wins)}")
+
+        print(f"Your Winning Percentage {player_wins/game_Count:.2%}")
+
         print("\nPlay Again? ")
 
         while True:
@@ -72,15 +57,15 @@ def rps(name = "Player One"):
         if playAgain == "y":
             return play_Game()
         else:
-            arcadeStart=arcade.arcade(name)
+            arcadeStart = arcade.arcade(name)
             arcadeStart()
-          
+            
             
 
     return play_Game
 
-
-if __name__ =="__main__":
+if __name__ == "__main__":
+    
     import argparse
 
     parser = argparse.ArgumentParser(
@@ -93,5 +78,8 @@ if __name__ =="__main__":
     )
 
     args = parser.parse_args()
-    play_Rock_Paper_Scissor = rps(args.name)
-    play_Rock_Paper_Scissor()
+    guess_My_Number_Game = guess_My_Number(args.name)
+    guess_My_Number_Game()
+
+
+
